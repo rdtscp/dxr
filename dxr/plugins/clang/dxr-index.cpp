@@ -538,7 +538,9 @@ public:
       // succeeds only if it doesn't exist."
       int fd = open(filename.c_str(), O_WRONLY | O_CREAT | O_EXCL, 0644);
       if (fd != -1) {
-        write(fd, content.c_str(), content.length());
+        const auto write_status = write(fd, content.c_str(), content.length());
+        if (write_status == -1)
+          std::cout << "Error writing translation unit in dxr-index.cpp" << std::endl; 
         close(fd);
       }
     }
