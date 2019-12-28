@@ -12,10 +12,10 @@ RUN apt-get install -y nodejs
 
 # Install LLVM 3.8
 RUN apt-get install -q -y \
-  clang-3.8 libclang-3.8-dev llvm-3.8
-RUN update-alternatives --force --install /usr/local/bin/llvm-config llvm-config /usr/bin/llvm-config-3.8 0
-RUN update-alternatives --force --install /usr/local/bin/clang++ clang++ /usr/bin/clang++-3.8 0
-RUN update-alternatives --force --install /usr/local/bin/clang clang /usr/bin/clang-3.8 0
+  clang-7 libclang-7-dev llvm-7
+RUN update-alternatives --force --install /usr/local/bin/llvm-config llvm-config /usr/bin/llvm-config-7 0
+RUN update-alternatives --force --install /usr/local/bin/clang++ clang++ /usr/bin/clang++-7 0
+RUN update-alternatives --force --install /usr/local/bin/clang clang /usr/bin/clang-7 0
 
 # Install Python Dependencies
 RUN apt-get install -q -y \
